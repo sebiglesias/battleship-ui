@@ -1,0 +1,10 @@
+{
+  "external": {
+    "urls": [
+      {"url": "https://fonts.googleapis.com/icon?family=Material+Icons"},
+      {"url": "https://fonts.googleapis.com/css?family=Neucha"},
+      {"url": "https://code.createjs.com/soundjs-0.6.2.min.js"},
+      {"url": "https://cdn.socket.io/socket.io-1.4.5.js"}
+    ]
+  }
+}

@@ -1,0 +1,8 @@
+.shot {
+  min-height: 45px;
+  max-height: 45px;
+  max-width: 45px;
+  min-width: 45px;
+  z-index: 100;
+  display: flex;
+}

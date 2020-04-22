@@ -1,0 +1,18 @@
+.user-photo {
+  border-radius: 50%;
+  min-height: 35px;
+  min-width: 35px;
+  max-width: 35px;
+  max-height: 35px;
+}
+
+.user-name {
+  margin: 5px !important;
+  font-weight: bold;
+}
+
+.user-content {
+  display: flex;
+  align-items: center;
+  max-height: 64px;
+}

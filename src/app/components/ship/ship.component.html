@@ -1,0 +1,3 @@
+<div *ngIf="this.ship" ngClass="{{this.shipOrientation ? this.ship.shipStyle[1] : this.ship.shipStyle[0]}}" [draggable] [dragData]="getShip()" [dragEnabled]="this.enableDrag">
+  <img src="{{this.shipOrientation ? this.ship.source[1] : this.ship.source[0]}}" ngClass="{{this.shipOrientation ? this.ship.shipStyle[1] : this.ship.shipStyle[0]}}" class="relative-ship"/>
+</div>

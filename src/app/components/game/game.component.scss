@@ -1,0 +1,263 @@
+// Color of overlay background
+$color-overlay: rgba(0, 0, 0, .5) !default;
+
+// Position of dialog
+$dialog-position-top: 5% !default;
+
+// Transition time
+// !! The same as the hideDelay variable defined in ngx-smart-modal.component.ts
+$transition-duration: 500ms !default;
+
+// Transition effect
+// linear | ease | ease-in | ease-out | ease-in-out
+$transition-timing-function: ease-in-out !default;
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.game-container {
+  margin-top: 5px;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.top-nav {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 100px;
+  min-width: 100px;
+  background-color: #ffffff;
+  margin: 10px 50px;
+  color: #000;
+  font-size: 32px;
+  font-weight: bold;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.announcer-message {
+  color: #000;
+  font-size: 32px;
+  font-weight: bold;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.countdown {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.confirm-button {
+  margin-left: 20px;
+}
+
+.game-content {
+  display: flex;
+  flex-flow: row;
+  flex-grow: 9;
+}
+
+.left-nav-menu {
+  background-color: #ffffff;
+}
+
+.left-nav {
+  flex-grow: 1;
+  margin-left: 5px;
+  margin-right: 5px;
+  min-width: 200px;
+  max-width: 240px;
+}
+
+.right-nav {
+  flex-grow: 10;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.player-board {
+  flex-grow: 1;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.enemy-board {
+  flex-grow: 1;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.left-nav-buttons {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-evenly;
+  align-content: center;
+  min-height: 300px;
+}
+
+.auto-fire {
+  background: rgba(0, 0, 0, 0.19);
+  color: black;
+}
+
+.auto-fire-on {
+  background: #f01d12 !important;
+  color: white !important;
+}
+
+.clear-board {
+  background-color: #ffbd03;
+}
+
+.random-position {
+  background-color: #ffa008;
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.collection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background: #eeeeee;
+  border: solid 2px black;
+  min-height: 50px;
+}
+
+.orientation-switch {
+  display: flex;
+  align-items: center;
+}
+
+.hint {
+  border: dotted 4px black;
+}
+
+.drag-over {
+  border: dotted 4px red;
+}
+
+.user {
+  padding-left: 10px;
+}
+
+.players {
+  display: flex;
+  align-content: center;
+  align-items: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: #ffbd03;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.navbar-logo {
+  margin: 15px;
+}
+
+.player-vs {
+  display: flex;
+  align-items: center;
+}
+
+.my-fleet {
+  background-color: #ffcf06;
+}
+
+.forfeit {
+  background-color: #ff8b0d;
+}
+
+.nsm-dialog-animation-ltr {
+  left: -50%;
+  transition: left $transition-duration $transition-timing-function, opacity $transition-duration;
+
+&.nsm-dialog-open {
+   left: 0;
+ }
+
+&.nsm-dialog-close {
+   left: -50%;
+ }
+}
+
+.modal-content {
+  min-height: 280px;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.versus {
+  margin-right: 5px;
+}
+
+.battleship-modal {
+  display: none;
+  position: absolute;
+  background-color: white;
+  padding: 20px;
+  z-index: 100;
+  top: 30%;
+  left: 40%;
+  overflow: auto;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Modal Content */
+.modal-content {
+  position: relative;
+  margin: auto;
+  padding: 0;
+  width: 80%;
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #5cb85c;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+  padding: 2px 16px;
+  color: white;
+}

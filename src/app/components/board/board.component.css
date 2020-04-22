@@ -1,0 +1,44 @@
+.board-cell {
+  border: solid 1px black;
+  background: #2d9bf1;
+  min-width: 45px;
+  max-width: 45px;
+  min-height: 45px;
+  max-height: 45px;
+  overflow: visible;
+}
+
+.board-table {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #eeeeee;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.board-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-legend {
+  min-width: 20px;
+  max-width: 20px;
+  padding-top: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.top-legend {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-left: 30px;
+  font-weight: bold;
+}
+
+.absolute-ship {
+  position: absolute;
+}

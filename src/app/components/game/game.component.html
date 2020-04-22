@@ -1,0 +1,134 @@
+<div class="main-container">
+
+  <div class="navbar">
+
+      <img class="navbar-logo" src="https://fontmeme.com/permalink/180515/d4a11a3058c2537d31387286af5b2df6.png" alt="logo" border="0">
+
+      <div class="player-vs">
+        <app-user-name class="me"></app-user-name>
+        <p class="versus">VS</p>
+        <app-enemy-name class="enemy"></app-enemy-name>
+      </div>
+
+  </div>
+
+  <div class="game-container">
+
+    <div class="top-nav" *ngIf="this.announcerMessage">
+      <p class="countdown">Time Left: {{this.timer}}</p>
+      <p class="announcer-message">{{this.announcerMessage}}</p>
+      <!--<p class="announcer-message">Time Left: {{this.count}}</p>-->
+      <button *ngIf="this.positioning && !this.boards[0].disabled" class="confirm-button btn forfeit" (click)="this.finishPositioning()">Confirm</button>
+    </div>
+
+    <div class="game-content">
+
+      <div class="left-nav">
+
+        <div class="card">
+          <div class="card-content left-nav-menu">
+
+            <div *ngIf="this.positioning" class="card">
+              <div class="card-content my-fleet">
+                <div class="card-title">
+                  My Fleet
+
+                  <div class="switch">
+                    <label>
+                      H
+                      <input type="checkbox" (change)="this.onOrientationChange()">
+                      <span class="lever"></span>
+                      V
+                    </label>
+                  </div>
+
+                  <ul class="collection" droppable (onDrop)="this.onShipReDropEvent($event)" [dragHintClass]="'hint'" [dragOverClass]="'drag-over'">
+                    <app-ship
+                      *ngFor="let sType of this.shipTypes"
+                      [shipType]="sType.shipType"
+                      [originColumn]="undefined"
+                      [originRow]="undefined"
+                      [shipOrientation]="this.orientation"
+                      [initialOrientation]="this.orientation"
+                      [id]="sType.id"
+                      [enableDrag]="this.positioning"
+                    ></app-ship>
+                  </ul>
+
+                </div>
+              </div>
+            </div>
+
+            <!--<div class="card" *ngIf="this.startedGame">-->
+              <!--<div class="card-content my-fleet">-->
+                <!--<div class="card-title">-->
+                  <!--&lt;!&ndash;<app-player-statistics [totalShots]="this.totalShots"></app-player-statistics>&ndash;&gt;-->
+                <!--</div>-->
+              <!--</div>-->
+            <!--</div>-->
+
+            <div class="left-nav-buttons">
+              <a *ngIf="this.positioning" class="btn clear-board" (click)="this.clearBoard()"><i class="material-icons left">delete</i>Clear</a>
+              <a *ngIf="this.positioning" class="btn random-position" (click)="this.randomPosition()"><i class="material-icons left">location_searching</i>Random</a>
+              <label *ngIf="this.startedGame" [class]="this.autoFire ? 'auto-fire btn auto-fire-on' : 'auto-fire btn'">
+                <input type="checkbox" [checked]="this.autoFire" (change)="this.autoFireChange()"/>
+                <span>Auto-fire</span>
+              </label>
+              <button class="btn forfeit modal-trigger w3-button" (click)="this.openForfeitModal()"><i class="material-icons left">warning</i>Forfeit</button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="right-nav">
+        <div *ngFor="let board of boards" [class]="board.name">
+          <app-board [board]="board" (eventEmitter)="processEvent($event)" [disabled]="board.disabled"></app-board>
+        </div>
+      </div>
+
+      <!--<div class="right-nav">-->
+      <!--<div *ngFor="let boardContainer of this.boardContainers" [class]="boardContainer.style">-->
+      <!--<app-board-container></app-board-container>-->
+      <!--</div>-->
+      <!--</div>-->
+
+    </div>
+
+    <div #modalF id="modalF" class="w3-modal battleship-modal">
+      <div class="modal-content w3-modal-content w3-animate-zoom">
+        <h4>Do you want to abandon the game?</h4>
+        <p>Take into account that abandoning the game means loosing it.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-large green" (click)="this.hideForfeitModal()">I do NOT, let me play!</button>
+        <button class="modal-close btn-large red" (click)="this.forfeit()">I do</button>
+      </div>
+    </div>
+
+    <div #modalG id="modalG" class="w3-modal battleship-modal">
+      <div class="w3-modal-content modal-content w3-animate-zoom">
+        <h4 *ngIf="this.won">You Won!!!</h4>
+        <h4 *ngIf="!this.won">You Lost!!!</h4>
+        <p>You can now go to the main menu and see your statistics.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-large green" (click)="this.endGame()">Main Menu</button>
+      </div>
+    </div>
+
+
+    <div #wonByForfeit id="wonByForfeit" class="nsm-dialog-animation-ltr w3-modal w3-animate-zoom battleship-modal">
+      <div class="modal-content w3-modal-content">
+        <h4 *ngIf="this.won">Your opponent forfeited, you Won!!!</h4>
+        <p>You can now go to the main menu and see your statistics.</p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn-large green" (click)="this.endGame()">Main Menu</button>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>

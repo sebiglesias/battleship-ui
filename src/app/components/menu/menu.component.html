@@ -1,0 +1,76 @@
+<div class="menu">
+
+  <div class="top-menu">
+    <div class="card" *ngIf="this.player">
+      <div class="card-content white-text info-card user">
+        <app-user-name></app-user-name>
+        <button class="waves-effect btn red" (click)="this.logout()">Logout</button>
+      </div>
+    </div>
+    <div class="" *ngIf="!this.looking4game && this.player">
+      <a class="waves-effect waves-light btn-large" (click)="this.lookForGame()"><i class="material-icons right">play_circle_outline</i>Play</a>
+    </div>
+    <div class="loading-menu" *ngIf="this.looking4game">
+      <div class="loading-spinner">
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+            <div class="circle"></div>
+          </div><div class="circle-clipper right">
+            <div class="circle"></div>
+          </div>
+          </div>
+        </div>
+      </div>
+      <div class="stop-button">
+        <a class="waves-effect waves-light btn-large red" (click)="this.stopLookingForGame()">Stop looking for a match</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="center-menu">
+
+    <!--<div class="left-menu">-->
+      <!--<div class="card" *ngIf="this.player">-->
+        <!--<div class="card-content info-card white-text">-->
+          <!--&lt;!&ndash;<div *ngFor="games"></div>&ndash;&gt;-->
+        <!--</div>-->
+      <!--</div>-->
+    <!--</div>-->
+
+    <div class="right-menu">
+      <div class="card" *ngIf="this.player">
+        <div class="card-content info-card white-text">
+          <span class="card-title">Statistics</span>
+          <table class="stripped center">
+            <thead>
+            <tr>
+              <th>Wins</th>
+              <th>Losses</th>
+              <th>Win-loss ratio</th>
+              <th>Hits</th>
+              <th>Misses</th>
+              <th>Hits-misses ratio</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>{{this.wins}}</td>
+              <td>{{this.losses}}</td>
+              <td>{{(this.winLossRatio  || 0).toFixed(2)}} %</td>
+              <td>{{this.hits}}</td>
+              <td>{{this.totalShoots - this.hits}}</td>
+              <td>{{(this.hitMissRatio || 0).toFixed(2)}} %</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

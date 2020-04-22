@@ -1,0 +1,56 @@
+.menu {
+  display: flex;
+  flex-flow: column;
+}
+
+.top-menu {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+
+.center-menu {
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+
+.left-menu {
+  flex-grow: 1;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.right-menu {
+  flex-grow: 1;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+.card {
+  background: #FDAD64 !important;
+}
+
+.loading-menu {
+  display: flex;
+  flex-flow: row;
+  align-content: center;
+}
+
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  margin-right: 30px;
+}
+
+.user {
+  display: flex;
+}
+
+.info-card {
+  background-color: #ffbd03;
+}
